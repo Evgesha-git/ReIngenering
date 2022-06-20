@@ -1,0 +1,26 @@
+.register_main{
+    width: 1400px;
+    height: 1694px;
+    background: #FFFFFF;
+    padding-top: 80px;
+    margin: 0 auto;
+}
+
+.register_filter{
+    margin: 0 115px 40px 115px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.register_filter h2{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+}
+
+.register_table{
+    margin: 0 115px 40px 115px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}

@@ -1,0 +1,179 @@
+.log_page_container{
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.log_page_link{
+    margin-left: 115px;
+    margin-top: 40px;
+    display: flex;
+}
+
+
+.log_page_link .arrow{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+}
+
+.log_page_link a{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #676A71;
+    text-decoration: none;
+    display: flex;
+}
+
+.log_page_form{
+    width: 430px;
+    margin: 15px auto 80px auto;
+
+}
+
+.log_page_form h2{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    color: #231F20;
+    margin-bottom: 40px;
+}
+
+.lag_main {
+    margin-bottom: 40px;
+}
+
+.lag_main p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #676A71;
+    margin-bottom: 5px;
+}
+
+.lag_main input[type=text], input[type=password]{
+    width: 92%;
+    height: 56px;
+    background: #F6F6F9;
+    border-radius: 5px;
+    border: none;
+    padding: 17px 18px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 20px;
+}
+
+/*Мистика, не иначе, но подругому не работает*/
+
+.log_main input[type=text]::placeholder, input[type=password]::placeholder{
+    color: #C6C6C6;
+}
+
+.log_main input[type=password]::placeholder, input[type=text]::placeholder{
+    color: #C6C6C6;
+}
+/*--------------------------------------------*/
+
+.log_check{
+    margin-top: 21px;
+    position: relative;
+}
+
+.log_check input[type=checkbox]{
+    display: none;
+}
+
+.log_check label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #A8AAAE;
+    margin-left: 34px;
+}
+
+.log_check label:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    background: url(../../img/ck.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+}
+
+.log_check input[type=checkbox]:checked ~ label:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    background: url(../../img/ok.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+}
+
+.log_submit{
+    width: 100%;
+    height: 56px;
+    background: #009CB4;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    margin-top: 21px;
+}
+
+.lag_main p:last-child{
+    text-align: center;
+    text-decoration: underline;
+    color: #009CB4;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.log_dop {
+    width: 430px;
+    margin: 40px auto;
+}
+
+.log_dop_btn{
+    padding: 20px 10px;
+    border: 1px solid #EDEDF4;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #4D4D4F;
+}
+.log_dop_btn:first-child{
+    margin-bottom: 20px;
+}
+
+.log_page_form p:last-child{
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4D4D4F;
+}
+
+.log_page_form p:last-child a{
+    color: #009CB4;
+}
