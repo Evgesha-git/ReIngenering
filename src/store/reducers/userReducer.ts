@@ -6,7 +6,8 @@ const initialState: UserState = {
         name: '',
         address: {
             city: ''
-        }
+        },
+        phone: '',
     },
     loading: true,
     error: null,
@@ -16,11 +17,11 @@ const initialState: UserState = {
 export const userReducer = (state = initialState, action: UserAction): UserState => {
     switch (action.type){
         case UserActionTypes.FETCH_USER:
-            return {loading: true, error: null, user: {name: '', address: {city: ''}}, login: false};
+            return {loading: true, error: null, user: {name: '', address: {city: ''}, phone: ''}, login: false};
         case UserActionTypes.FETCH_USER_SUCCESS:
             return {loading: false, error: null, user: action.payload, login: true};
         case UserActionTypes.FETCH_USER_ERROR:
-            return {loading: false, error: action.payload, user: {name: '', address: {city: ''}}, login: false};
+            return {loading: false, error: action.payload, user: {name: '', address: {city: ''}, phone: ''}, login: false};
         case UserActionTypes.USER_LOGIN:
             return state
         default:

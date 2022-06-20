@@ -9,7 +9,7 @@ import badge from '../../img/badge.svg';
 import {userTypeSelector} from "../../hooks/userTypeSelector";
 import Profile from "../profile/profile";
 import {useActions} from "../../hooks/useActions";
-import { Outlet } from 'react-router-dom';
+import {Link, Outlet } from 'react-router-dom';
 
 const Header: React.FC = () => {
     const {loginUser, stateUser} = useActions();
@@ -24,7 +24,9 @@ const Header: React.FC = () => {
 
                 <div className="forms">
                     <div className="logo">
-                        <img src={logo} alt="Logo"/>
+                        <Link to='/'>
+                            <img src={logo} alt="Logo"/>
+                        </Link>
                     </div>
                     <form action="" className="search">
                         <input type="text" name="s" id="search" placeholder='Поиск'/>

@@ -5,6 +5,7 @@ export interface UserState{
         address: {
             city: string;
         };
+        phone: string;
     },
     loading: boolean,
     error: null | string,
@@ -25,10 +26,11 @@ interface FetchUserAction {
 interface FetchUserSuccessAction {
     type: UserActionTypes.FETCH_USER_SUCCESS;
     payload: {
-        name: any
+        name: any;
         address: {
             city: string;
-        }
+        };
+        phone: string;
     };
 
 }

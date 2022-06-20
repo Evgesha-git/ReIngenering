@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {useActions} from "../../hooks/useActions";
 import {userTypeSelector} from "../../hooks/userTypeSelector";
@@ -7,23 +7,45 @@ import './logPage.css';
 import back from '../../img/back.svg'
 
 const LogPage:React.FC = () => {
-    const login = useRef(null);
+    const loginRef = useRef(null);
     const password = useRef(null);
     const {loginUser} = useActions()
-    const {user, loading, error} = userTypeSelector(state => state.user)
+    const {user, loading, error, login} = userTypeSelector(state => state.user)
     const userAccount = useNavigate();
+    const {stateUser} = useActions()
+    const [errorInputLogin, setErrorInputLogin] = useState({error: false});
+    const [errorInputPassword, setErrorInputPassword] = useState({error: false});
 
-    const loginHandler = (e: any) => {
+
+    useEffect(() => {
+        stateUser();
+        if (login){
+            userAccount('/account', {replace: true})
+        }
+    }, [user, login, error, errorInputPassword, errorInputLogin])
+
+    const inputHandlerValidation = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const reg = /[a-zA-Z0-9]{3,}/g;
+        let val = e.target.value;
+        setErrorInputLogin({error:!reg.test(val)})
+        console.log(reg.test(val))
+    }
+
+    const inputHandlerValidationPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const reg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}/g;
+        let val = e.target.value;
+        setErrorInputPassword({error:!reg.test(val)});
+    }
+
+    const loginHandler = async (e: any) => {
         e.preventDefault();
         // @ts-ignore
-        let log = login.current.value;
+        let log = loginRef.current.value;
         // @ts-ignore
         let pass = password.current.value
 
-        loginUser(log, pass);
-        if (!error){
-            userAccount('/account', {replace: true})
-        }
+        await loginUser(log, pass);
+
     }
 
     return (
@@ -34,25 +56,31 @@ const LogPage:React.FC = () => {
                     Главная
                 </Link>
             </div>
-            <form className='log_page_form' action="" onSubmit={e => loginHandler(e)}>
+            <form className='log_page_form' action="" onSubmit={loginHandler}>
                 <h2>Авторизация</h2>
-                <div className='lag_main'>
-                    <p>Имя</p>
-                    <input ref={login} type='text' name="log" id="log" placeholder='Введите имя'/>
-                    <p>Пароль</p>
-                    <input ref={password} type="password" name="pas" id="pas" placeholder='Введите пароль'/>
+                <div className='log_main'>
+                    <div className="inputs_log">
+                        {errorInputLogin.error ? <p className='label_inputs_error'>Неправильный логин</p> : ''}
+                        <input ref={loginRef} onInput={inputHandlerValidation} className={errorInputLogin.error ? 'error_input log_inputs' : 'log_inputs'} type='text' name="log" id="log" placeholder='Введите имя'/>
+                        <p className={errorInputLogin.error ? 'error_text label_inputs' : 'label_inputs'}>Имя</p>
+                    </div>
+                    <div className="inputs_log">
+                        {errorInputPassword.error ? <p className='label_inputs_error'>Неправильный пароль</p> : ''}
+                        <input ref={password} onInput={inputHandlerValidationPassword} className={errorInputPassword.error ? 'error_input log_inputs' : 'log_inputs'} type="password" name="pas" id="pas" placeholder='Введите пароль'/>
+                        <p className={errorInputPassword.error ? 'error_text label_inputs' : 'label_inputs'}>Пароль</p>
+                    </div>
                     <div className='log_check'>
                         <input type="checkbox" name="ch" id="ch"/>
                         <label htmlFor="ch">Запомнить меня на этом компьютере</label>
                     </div>
                     <button className='log_submit' type="submit">Вход</button>
-                    <p>Забыли свой пароль?</p>
+                    <p className='pass_re'>Забыли свой пароль?</p>
                 </div>
                 <div className='log_dop'>
                     <div className='log_dop_btn'>Авторизация с использованием ЕС ИФЮЛ</div>
                     <div className='log_dop_btn'>Авторизация с использованием МСИ</div>
                 </div>
-                <p>У вас нет аккаунта? <br/>
+                <p className='acc_create'>У вас нет аккаунта? <br/>
                     <a href="">Нажмите сюда чтобы создать</a></p>
             </form>
         </div>

@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.log_submit:hover, .search_information_button:hover, .news_button:hover, .save:hover{
+  background: #01B8D5;
+}
+
+.log_submit:active, .search_information_button:active, .news_button:active, .save:active{
+  background: #01BEDB;
+  box-shadow: 0px 8px 40px rgba(1, 184, 212, 0.15);
+}

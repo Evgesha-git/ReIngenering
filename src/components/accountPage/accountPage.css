@@ -1,0 +1,172 @@
+.user_account_container{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.user_account_container h2{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    color: #231F20;
+    margin-left: 115px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.user_account_info {
+    display: flex;
+    margin: 0 115px 80px 115px;
+    justify-content: space-between;
+}
+
+.selected{
+    border: 1px solid #009CB4;
+    border-radius: 5px;
+    color: #009CB4;
+}
+
+.user_menu .user_menu_button{
+    width: 270px;
+    height: 72px;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: #EDEDF4;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #676A71;
+    cursor: pointer;
+}
+
+.selected * {
+    fill: #009CB4;
+}
+
+.exit {
+    color: #E0371F;
+}
+
+.exit * {
+    fill: #E0371F;
+}
+
+.ico_user {
+    width: 32px;
+    height: 32px;
+    margin: 0 10px 0 20px;
+}
+
+.user_main{
+    width: 770px;
+}
+
+.foto_header{
+    display: flex;
+    align-items: center;
+}
+
+.foto_header .avatar{
+    width: 64px;
+    height: 64px;
+}
+
+.foto_header h2{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: #231F20;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.user_main .line{
+    width: 770px;
+    height: 1px;
+    background: #EDEDF4;
+    border-radius: 3px;
+    margin: 36px 0;
+}
+
+.user_main_data h3{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4D4D4F;
+}
+
+.user_main_data .inputs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.user_main_data .inputs div{
+    width: 370px;
+}
+
+.user_main_data .inputs div p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #A8AAAE;
+    margin-bottom: 5px;
+}
+
+.user_main_data .inputs div input, select{
+    width: 90%;
+    height: 56px;
+    padding: 0 18px;
+    background: #F6F6F9;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #4D4D4F;
+}
+
+.user_main_data .inputs div input{
+    width: 90%;
+}
+
+.user_main_data .inputs div select{
+    width: 100%;
+}
+
+.user_password h3{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4D4D4F;
+    margin: 0 auto 20px 0;
+}
+
+.user_password_elements{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_password_elements p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #A8AAAE;
+}
+
+
+.save{
+    width: 270px;
+    height: 56px;
+    border: none;
+    background: #009CB4;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    cursor: pointer;
+}

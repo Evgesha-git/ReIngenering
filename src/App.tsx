@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from "./components/homePage/homePage";
 import LogPage from "./components/logPage/logPage";
 import AccountPage from "./components/accountPage/accountPage";
+import Footer from "./components/footer/footer";
 
 function App() {
     return (
@@ -16,7 +17,7 @@ function App() {
                     <Route path='account' element={<AccountPage/>}/>
                 </Route>
             </Routes>
-
+            <Footer/>
         </div>
     );
 }

@@ -49,7 +49,36 @@
     margin-bottom: 40px;
 }
 
-.lag_main p{
+.inputs_log{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+}
+
+/*Вот за это мне самому стыдно*/
+
+.log_inputs{
+    width: 92%;
+    height: 56px;
+    background: #F6F6F9;
+    border-radius: 5px;
+    border: none;
+    padding: 0 18px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.log_main .log_inputs::placeholder{
+    color: #C6C6C6;
+}
+
+.log_inputs:focus{
+    background: #F6F6F9;
+    border: 1px solid #009CB4;
+}
+
+.label_inputs{
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
@@ -57,29 +86,34 @@
     margin-bottom: 5px;
 }
 
-.lag_main input[type=text], input[type=password]{
-    width: 92%;
-    height: 56px;
+.log_inputs:focus ~ .label_inputs{
+    color: #009CB4;
+}
+
+.error_input{
     background: #F6F6F9;
+    border: 1px solid #E0371F;
     border-radius: 5px;
-    border: none;
-    padding: 17px 18px;
+    color: #E0371F;
+}
+
+.error_input:focus ~ .label_inputs{
+    color: #E0371F;
+}
+
+.error_text{
+    color: #E0371F;
+}
+
+.label_inputs_error{
     font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #E0371F;
+    margin-top: 5px;
 }
 
-/*Мистика, не иначе, но подругому не работает*/
-
-.log_main input[type=text]::placeholder, input[type=password]::placeholder{
-    color: #C6C6C6;
-}
-
-.log_main input[type=password]::placeholder, input[type=text]::placeholder{
-    color: #C6C6C6;
-}
-/*--------------------------------------------*/
+/*-------------------------------*/
 
 .log_check{
     margin-top: 21px;
@@ -125,6 +159,7 @@
     width: 100%;
     height: 56px;
     background: #009CB4;
+    border: none;
     border-radius: 5px;
     font-weight: 700;
     font-size: 18px;
@@ -132,9 +167,10 @@
     letter-spacing: 0.01em;
     color: #FFFFFF;
     margin-top: 21px;
+    cursor: pointer;
 }
 
-.lag_main p:last-child{
+.pass_re{
     text-align: center;
     text-decoration: underline;
     color: #009CB4;
@@ -162,11 +198,18 @@
     text-decoration-line: underline;
     color: #4D4D4F;
 }
+
+.log_dop_btn:hover{
+    border: 1px solid #009CB4;
+    border-radius: 5px;
+    color: #009CB4;
+}
+
 .log_dop_btn:first-child{
     margin-bottom: 20px;
 }
 
-.log_page_form p:last-child{
+.acc_create{
     text-align: center;
     font-weight: 500;
     font-size: 16px;
