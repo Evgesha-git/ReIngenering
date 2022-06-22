@@ -63,6 +63,9 @@
     position: absolute;
     right: -34px;
     top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*Вот за это мне самому стыдно*/
