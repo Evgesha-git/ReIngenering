@@ -1,5 +1,5 @@
 import React from "react";
-import {DataGrid, GridColDef, GridValueGetterParams} from "@mui/x-data-grid";
+import {DataGrid, GridColDef} from "@mui/x-data-grid";
 import {registers} from "../../dataFiles/data";
 import './register.css';
 
@@ -36,6 +36,7 @@ const Register:React.FC = () => {
                 </div>
             </div>
             <div className='register_table' style={{height: 1364}}>
+                {/* Тут я не осилил задачу */}
                 <DataGrid
                     rows={rows}
                     columns={columns}

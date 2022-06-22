@@ -55,6 +55,16 @@
     margin-bottom: 20px;
 }
 
+.inputs_log_input{
+    position: relative;
+}
+
+.good{
+    position: absolute;
+    right: -34px;
+    top: 16px;
+}
+
 /*Вот за это мне самому стыдно*/
 
 .log_inputs{

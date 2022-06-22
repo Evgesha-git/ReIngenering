@@ -5,6 +5,8 @@ import {userTypeSelector} from "../../hooks/userTypeSelector";
 import './logPage.css';
 //@ts-ignore
 import back from '../../img/back.svg'
+import TaskAltRounded from '@mui/icons-material/TaskAltRounded';
+
 
 const LogPage:React.FC = () => {
     const loginRef = useRef(null);
@@ -13,8 +15,8 @@ const LogPage:React.FC = () => {
     const {user, loading, error, login} = userTypeSelector(state => state.user)
     const userAccount = useNavigate();
     const {stateUser} = useActions()
-    const [errorInputLogin, setErrorInputLogin] = useState({error: false});
-    const [errorInputPassword, setErrorInputPassword] = useState({error: false});
+    const [errorInputLogin, setErrorInputLogin] = useState({error: false, good: false});
+    const [errorInputPassword, setErrorInputPassword] = useState({error: false, good: false});
 
 
     useEffect(() => {
@@ -26,15 +28,18 @@ const LogPage:React.FC = () => {
 
     const inputHandlerValidation = (e: React.ChangeEvent<HTMLInputElement>) => {
         const reg = /[a-zA-Z0-9]{3,}/g;
-        let val = e.target.value;
-        setErrorInputLogin({error:!reg.test(val)})
-        console.log(reg.test(val))
+        let val: string = e.target.value;
+        let bul: boolean = reg.test(val);
+        if (val === '') setErrorInputLogin({error:false, good: false});
+        setErrorInputLogin({error:!bul, good: bul});
     }
 
     const inputHandlerValidationPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         const reg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}/g;
-        let val = e.target.value;
-        setErrorInputPassword({error:!reg.test(val)});
+        let val: string = e.target.value;
+        let bul: boolean = reg.test(val);
+        if (val === '') setErrorInputPassword({error:false, good: false});
+        setErrorInputPassword({error:!bul, good: bul});
     }
 
     const loginHandler = async (e: any) => {
@@ -61,12 +66,42 @@ const LogPage:React.FC = () => {
                 <div className='log_main'>
                     <div className="inputs_log">
                         {errorInputLogin.error ? <p className='label_inputs_error'>Неправильный логин</p> : ''}
-                        <input ref={loginRef} onInput={inputHandlerValidation} className={errorInputLogin.error ? 'error_input log_inputs' : 'log_inputs'} type='text' name="log" id="log" placeholder='Введите имя'/>
+                        <div className='inputs_log_input'>
+                            <input 
+                                ref={loginRef} 
+                                onInput={inputHandlerValidation} 
+                                style={errorInputLogin.good ? {border: '1px solid #00B347'} : {}} 
+                                className={errorInputLogin.error ? 'error_input log_inputs' : 'log_inputs'} 
+                                type='text' 
+                                name="log" 
+                                id="log" 
+                                placeholder='Введите имя'
+                            />
+                            {errorInputLogin.good ? 
+                            <div className='good'>
+                                <TaskAltRounded sx={{fill: '#00B247'}}/>
+                            </div> : null}
+                        
+                        </div>
                         <p className={errorInputLogin.error ? 'error_text label_inputs' : 'label_inputs'}>Имя</p>
                     </div>
                     <div className="inputs_log">
                         {errorInputPassword.error ? <p className='label_inputs_error'>Неправильный пароль</p> : ''}
-                        <input ref={password} onInput={inputHandlerValidationPassword} className={errorInputPassword.error ? 'error_input log_inputs' : 'log_inputs'} type="password" name="pas" id="pas" placeholder='Введите пароль'/>
+                        <div className='inputs_log_input'>
+                            <input 
+                                ref={password} 
+                                style={errorInputPassword.good ? {border: '1px solid #00B347', color: '#00B347'} : {}} 
+                                onInput={inputHandlerValidationPassword} 
+                                className={errorInputPassword.error ? 'error_input log_inputs' : 'log_inputs'} 
+                                type="password" 
+                                name="pas" 
+                                id="pas" 
+                                placeholder='Введите пароль'
+                            />
+                            {errorInputPassword.good ? <div className='good'>
+                                <TaskAltRounded sx={{fill: '#00B247'}}/>
+                            </div> : null}
+                        </div>
                         <p className={errorInputPassword.error ? 'error_text label_inputs' : 'label_inputs'}>Пароль</p>
                     </div>
                     <div className='log_check'>
