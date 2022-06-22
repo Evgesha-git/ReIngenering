@@ -11,7 +11,7 @@ import {useActions} from "../../hooks/useActions";
 import {useNavigate} from "react-router-dom";
 
 const Profile: React.FC = () => {
-    const {user, loading, error} = userTypeSelector(state => state.user);
+    const {user, loading, error, login} = userTypeSelector(state => state.user);
     const {stateUser} = useActions();
     const toLogin = useNavigate();
 
@@ -33,9 +33,9 @@ const Profile: React.FC = () => {
     return (
         <div className="profile">
             <div className="avatar">
-                <img src={loading ? avatar : avatarLoad} alt=""/>
+                <img src={!login ? avatar : avatarLoad} alt=""/>
             </div>
-            {loading ?
+            {!login ?
                 <span onClick={() => loginHandler()}>Вход в акаунт</span>:
                 <span onClick={() => userHandler()}>{user.name}</span>
             }
